@@ -94,7 +94,15 @@ fn compound() {
 
 fn arrays() {
     let a: [i32; 5] = [1, 2, 3, 4, 5];
-    let b = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    let b = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+    ];
     let z = [3; 5];
 
     println!("{}, {}, {}", a[0], a[3], a[1]);
@@ -102,15 +110,18 @@ fn arrays() {
     println!("{:?}", z);
     println!("---------------------------------------------");
 
-    let arr = [1,2,3,4,5];
-    let mut index = String::new();
+    let arr = [1, 2, 3, 4, 5];
+    let mut input = String::new();
 
-    stdin().read_line(&mut index).expect("Failed to read line");
+    stdin().read_line(&mut input).expect("Failed to read line");
 
-    let index: usize = index.trim().parse().expect("Index entered was not a number!");
+    let i: usize = input
+        .trim()
+        .parse()
+        .expect("Index entered was not a number!");
 
-    let element = arr[index];
-    println!("The value of the element at the index {index} is: {element}");
+    let element = arr[i];
+    println!("The value of the element at the index {i} is: {element}");
 
     println!("---------------------------------------------");
 }
