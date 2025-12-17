@@ -22,16 +22,19 @@ fn main() {
     println!("---------------------------------------------");
 
     data_types();
+    println!("---------------------------------------------");
     floating();
+    println!("---------------------------------------------");
     characters();
+    println!("---------------------------------------------");
     compound();
+    println!("---------------------------------------------");
     arrays();
 }
 
 fn data_types() {
     let num: u32 = "42".parse().expect("Not a number!");
     println!("{num}");
-    println!("---------------------------------------------");
 }
 
 fn floating() {
@@ -60,7 +63,6 @@ fn floating() {
     // remainder
     let remainder = 43 % 5;
     println!("remainder: {remainder}");
-    println!("---------------------------------------------");
 }
 
 fn characters() {
@@ -70,7 +72,6 @@ fn characters() {
     println!("{z}");
     let heart_eyed_cat = '😻';
     println!("{heart_eyed_cat}");
-    println!("---------------------------------------------");
 }
 fn compound() {
     let tup = (500, 2.4, true);
@@ -89,7 +90,6 @@ fn compound() {
     x.0 = 0;
     x.1 += 2;
     print!("{0} {1}\n", x.0, x.1);
-    println!("---------------------------------------------");
 }
 
 fn arrays() {
@@ -123,5 +123,4 @@ fn arrays() {
     let element = arr[i];
     println!("The value of the element at the index {i} is: {element}");
 
-    println!("---------------------------------------------");
 }
