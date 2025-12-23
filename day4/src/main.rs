@@ -122,5 +122,4 @@ fn arrays() {
 
     let element = arr[i];
     println!("The value of the element at the index {i} is: {element}");
-
 }
