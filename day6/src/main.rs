@@ -71,6 +71,7 @@ fn another_example() {
     }
     println!("End count = {count}");
 }
+
 fn another_while_loop() {
     let mut number = 3;
 
@@ -103,7 +104,7 @@ fn another_for_example() {
     println!("LIFTOFF!!!")
 }
 
-fn temp(t :f64) {
+fn temp(t: f64) {
     let f = (t * 1.8) + 32.0;
     println!("The temp to Fahrenhiet is: {f}")
 }
