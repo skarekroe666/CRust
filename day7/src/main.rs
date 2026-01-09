@@ -9,10 +9,10 @@ fn main() {
     // let y = x;       //Copy
 
     let s1 = String::from("skarekroe");
-    let s2 = s1;                                         //throws error
-    // let s2 = s1.clone();
-    // println!("{s1}");
-    // println!("{s2}");
+    // let s2 = s1;                                         //throws error
+    let s2 = s1.clone();
+    println!("{s1}");
+    println!("{s2}");
 
     let str = String::from("hello");
     takes_owner_ship(str);
