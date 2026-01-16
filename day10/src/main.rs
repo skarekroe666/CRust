@@ -22,13 +22,6 @@ fn main() {
 
     borrow_checker();
     println!("--------------------------------------------------------");
-
-    let mut count = 1;
-    let count_ref = &count;
-    log_counter(count_ref);
-
-    count += 1;
-    println!("Updated counte: {count}");
 }
 
 fn get_first(vr: &Vec<i32>) -> i32 {
@@ -37,13 +30,12 @@ fn get_first(vr: &Vec<i32>) -> i32 {
 
 fn borrow_checker() {
     let mut v = vec![1,2,3];
-    let num = &v[2];
-    println!("Third element is {}", *num);
+    let num = &mut v[2];
+    let num2 = &*num;
+    // *num += 1;
+    // println!("Third element is {}", *num);
     
-    v.push(4);
-}
-
-fn log_counter(num: &i32) {
-    println!("Current count value: {num}");
+    // v.push(4);
+    println!("{} {}", *num, *num2);
 }
 
