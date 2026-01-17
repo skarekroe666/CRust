@@ -1,6 +1,6 @@
 fn main() {
     let mut s1 = String::from("hello");
-    change(&mut s1);
+    change( &mut s1);
     println!("{s1}");
 
     let sentence = "waddup skarekroe";
