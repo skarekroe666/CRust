@@ -4,6 +4,9 @@ struct User {
     age: u8,
 }
 
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
 fn main() {
     let user1 = User {
         name: String::from("sanskar"),
@@ -30,7 +33,6 @@ fn main() {
         "Name: {}, Email: {}, Age: {}",
         user3.name, user3.email, user3.age
     );
-
 }
 
 fn build_user(name: String, age: u8) -> User {
