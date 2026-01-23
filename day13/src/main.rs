@@ -4,8 +4,8 @@ struct User {
     age: u8,
 }
 
-struct Color(i32, i32, i32);
-struct Point(i32, i32, i32);
+// struct Color(i32, i32, i32);
+// struct Point(i32, i32, i32);
 
 fn main() {
     let user1 = User {
@@ -33,6 +33,12 @@ fn main() {
         "Name: {}, Email: {}, Age: {}",
         user3.name, user3.email, user3.age
     );
+
+    let user4 = build_another_user(String::from("sanjanamyhoe@fake.com"), String::from("sanju"));
+    println!(
+        "Name: {}, Email: {}, Age: {}",
+        user4.name, user4.email, user4.age
+    );
 }
 
 fn build_user(name: String, age: u8) -> User {
@@ -40,5 +46,13 @@ fn build_user(name: String, age: u8) -> User {
         name,
         email: String::from("skarekroe@fake.com"),
         age,
+    }
+}
+
+fn build_another_user(email: String, name: String) -> User {
+    User {
+        name,
+        email,
+        age: 33,
     }
 }

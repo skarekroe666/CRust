@@ -22,7 +22,8 @@ fn main() {
     // println!("{string}");
     // println!("{first_word}");
 
-    let s2 = "skarekroe sanjana";
+    // let s2 = "skarekroe sanjana";
+    let s2 = String::from("skarekroe sanjana");
     let other_first_word = first_word(&s2);
     println!("{s2}");
     println!("{other_first_word}");
