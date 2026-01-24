@@ -68,6 +68,6 @@ struct User {
 
 impl User {
     fn info(&self) {
-        println!("Hello my name is {} and I love {}", self.name, self.partner);
+        println!("{} loves {}", self.partner, self.name);
     }
 }
