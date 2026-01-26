@@ -12,10 +12,11 @@ impl Message {
     }
 }
 
-// enum Option<T> {
-//     Some(T),
-//     None,
-// }
+#[derive(Debug)]
+struct IpAddrKind {
+    V4: (u8, u8, u8),
+    V6: String,
+}
 
 fn main() {
     let q = Message::Quit;
@@ -45,5 +46,15 @@ fn main() {
     //unwrap() is a method that returns the value inside the Option<T> if it is Some<T>
     let sum = x + y.unwrap();
     println!("{sum}");
+
+    println!("---------------------------------------------------------");
+
+    let i = IpAddrKind {
+        V4: (127, 0, 0),
+        V6: String::from("::1"),
+    };
+
+    println!("{:?}", i.V4);
+    println!("{:?}", i.V6);
 }
 
