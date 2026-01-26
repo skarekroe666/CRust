@@ -20,12 +20,12 @@ struct IpAddrKind {
 
 fn main() {
     let q = Message::Quit;
-    let w = Message::Write(String::from("hello"));
-    let m = Message::Move { x: 32, y: 43 };
-    let c = Message::ChangeColor(122, 0, 0);
     q.call();
+    let w = Message::Write(String::from("hello"));
     w.call();
+    let m = Message::Move { x: 32, y: 43 };
     m.call();
+    let c = Message::ChangeColor(122, 0, 0);
     c.call();
 
     println!("---------------------------------------------------------");
@@ -57,4 +57,3 @@ fn main() {
     println!("{:?}", i.V4);
     println!("{:?}", i.V6);
 }
-
