@@ -7,7 +7,7 @@ fn main() {
     // println!("{:?}", result);
     // println!("{:?}", is_green_result);
 
-    let foo = Item::Bar(32);
+    let foo = Item::Foo(String::from("skarekroe"));
     if let Item::Foo(s) = foo {
         println!("{}", s);
     }
