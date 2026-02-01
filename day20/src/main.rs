@@ -1,12 +1,12 @@
+use crate::garden::veggies::Asparagus;
+
+//the "pub mod garden" tells the compiler to include code it finds in src/garden.rs
+pub mod garden;
+
 fn main() {
-    let my_mood = "SAD";
-
-    let emoji = match my_mood.to_lowercase().as_str() {
-        "sad" => "🥲",
-        s if s.contains("crazy") => "🤪",
-        _ => "😐",
+    let plant = Asparagus {
+        shape: String::from("long"),
+        texture: String::from("crusty"),
     };
-
-    println!("{my_mood}");
-    println!("{emoji}");
+    println!("I'm growing {:?}", plant);
 }
