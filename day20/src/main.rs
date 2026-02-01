@@ -1,9 +1,12 @@
 fn main() {
-    let mut x = 5;
-    increment(&mut x);
-    println!("{x}");
-}
+    let my_mood = "SAD";
 
-fn increment(x: &mut i32) {
-    *x += 1;
+    let emoji = match my_mood.to_lowercase().as_str() {
+        "sad" => "🥲",
+        s if s.contains("crazy") => "🤪",
+        _ => "😐",
+    };
+
+    println!("{my_mood}");
+    println!("{emoji}");
 }
