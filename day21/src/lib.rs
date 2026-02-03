@@ -1,59 +1,59 @@
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
+pub mod banking {
+    pub mod accounts {
+        #[derive(Debug)]
+        pub struct Account {
+            pub acc_number: i32,
+            pub balance: f64,
+        }
 
-        fn seat_at_table() {}
-    }
-
-    mod serving {
-        fn take_order() {}
-
-        fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
-
-fn deliver_order() {}
-
-mod back_of_house {
-    fn fix_incorrect_order() {
-        cook_order();
-        super::deliver_order();
-    }
-
-    fn cook_order() {
-        println!("Fixed incorrect order, Here's your meal");
-    }
-
-    pub struct Breakfast {
-        pub toast: String,
-        seasonal_fruit: String,
-    }
-
-    impl Breakfast {
-        pub fn summer(toast: &str) -> Breakfast {
-            Breakfast {
-                toast: String::from(toast),
-                seasonal_fruit: String::from("peaches"),
+        pub fn open_account(id: i32) -> Account {
+            println!("Account {} opened!", id);
+            Account {
+                acc_number: id,
+                balance: 0.0,
             }
+        }
+
+        #[allow(dead_code)]
+        fn close_account(acc: &mut Account) {
+            println!("Account {} closed", acc.acc_number);
+            acc.balance = 0.0;
         }
     }
 
-    pub enum Appetizer {
-        Soup,
-        Salad,
+    pub mod transactions {
+        //super allows us to use functionality outside the module
+        use super::accounts::Account;
+
+        pub fn deposit(acc: &mut Account, amount: f64) {
+            acc.balance += amount;
+            println!(
+                "Deposited ${:.2}, into Account {}. New balance: {}\n",
+                amount, acc.acc_number, acc.balance
+            );
+        }
+
+        pub fn withdraw(acc: &mut Account, amount: f64) {
+            if acc.balance >= amount {
+                acc.balance -= amount;
+                println!(
+                    "Withdrew {} from Account {}. New balance: {:.2}\n",
+                    amount, acc.acc_number, acc.balance
+                );
+            }
+        }
+
+        pub fn transfer(from: &mut Account, to: &mut Account, amount: f64) {
+            if from.balance >= amount {
+                from.balance -= amount;
+                to.balance += amount;
+                println!(
+                    "Transferred ${:.2} from Account {} to Account {}\n",
+                    amount, from.acc_number, to.acc_number
+                );
+            } else {
+                println!("Insufficient funds");
+            }
+        }
     }
 }
-
-pub fn eat_at_restaurant() {
-    let mut meal = back_of_house::Breakfast::summer("Rye");
-    meal.toast = String::from("Wheat");
-    println!("I'd like a {} toast please", meal.toast);
-
-    // meal.seasonal_fruit = String::from("blueberries");
-
-    let order1 = back_of_house::Appetizer::Soup;
-    let order2 = back_of_house::Appetizer::Salad;
-}
-
