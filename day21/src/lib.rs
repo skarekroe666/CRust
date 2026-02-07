@@ -28,7 +28,7 @@ pub mod banking {
         pub fn deposit(acc: &mut Account, amount: f64) {
             acc.balance += amount;
             println!(
-                "Deposited ${:.2}, into Account {}. New balance: {}\n",
+                "Deposited ${:.2}, into Account {}. New balance: {}",
                 amount, acc.acc_number, acc.balance
             );
         }
@@ -37,7 +37,7 @@ pub mod banking {
             if acc.balance >= amount {
                 acc.balance -= amount;
                 println!(
-                    "Withdrew {} from Account {}. New balance: {:.2}\n",
+                    "Withdrew {} from Account {}. New balance: {:.2}",
                     amount, acc.acc_number, acc.balance
                 );
             }
@@ -48,7 +48,7 @@ pub mod banking {
                 from.balance -= amount;
                 to.balance += amount;
                 println!(
-                    "Transferred ${:.2} from Account {} to Account {}\n",
+                    "Transferred ${:.2} from Account {} to Account {}",
                     amount, from.acc_number, to.acc_number
                 );
             } else {

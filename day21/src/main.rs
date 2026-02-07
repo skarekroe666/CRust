@@ -7,8 +7,8 @@ fn main() {
     let mut skarekroe = open_account(367423);
     let mut sanjana = open_account(394852);
 
-    dbg!(&skarekroe);
-    dbg!(&sanjana);
+    // dbg!(&skarekroe);
+    // dbg!(&sanjana);
     println!("---------------------------------------------");
 
     deposit(&mut skarekroe, 63234.32);
