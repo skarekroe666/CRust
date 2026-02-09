@@ -38,7 +38,7 @@ fn main() {
     // }
 
     for cell in row {
-        if let Spreadsheet::Int(i) = cell {
+        if let Spreadsheet::Float(i) = cell {
             println!("{i}");
         }
     }
