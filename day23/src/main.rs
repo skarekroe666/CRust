@@ -1,52 +1,28 @@
 fn main() {
-    // let mut v = Vec::new();
-    // v.push(1);
-    // v.push(2);
-    // v.push(3);
+    let mut v = vec![1, 2, 3, 4];
+    v.push(5);
 
-    let mut v1 = vec![1, 2, 3, 4, 5];
+    let second = &v[1];
+    println!("{}", second);
 
-    let third = &v1[2];
-    println!("The third element is {third}");
-    v1.pop();
-
-    let fourth = v1.get(3);
-    match fourth {
-        Some(fourth) => println!("The fourth element is {fourth}"),
-        None => println!("There is no fourth element"),
+    let third = v.get(6);
+    match third {
+        Some(i) => println!("{i}"),
+        None => println!("no number at tha index"),
     }
 
-    for i in &mut v1 {
-        *i += 10;
-        println!("{i}");
+    let people = vec!["skarekroe", "sanjana", "anisha"];
+    let third_wheel = &people.get(2);
+    dbg!(third_wheel);
+
+    for p in &people {
+        println!("{p}");
     }
 
-    println!("--------------------------------------------------------");
-
-    let row = vec![
-        Spreadsheet::Int(32),
-        Spreadsheet::Float(3.2),
-        Spreadsheet::Text(String::from("skarekroe")),
-    ];
-
-    // for cell in row {
-    //     match cell {
-    //         Spreadsheet::Int(i) => println!("{i}"),
-    //         Spreadsheet::Float(f) => println!("{f}"),
-    //         Spreadsheet::Text(s) => println!("{s}",),
-    //     }
-    // }
-
-    for cell in row {
-        if let Spreadsheet::Float(i) = cell {
-            println!("{i}");
-        }
+    let mut nums = vec![1, 2, 3];
+    for n in &mut nums {
+        *n += 20;
     }
-}
 
-#[derive(Debug)]
-enum Spreadsheet {
-    Int(i32),
-    Float(f64),
-    Text(String),
+    println!("nums in vector are: {:?}", nums);
 }

@@ -1,39 +1,60 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 fn main() {
     println!("Hello, skarekroe!");
 
-    let mut map = HashMap::new();
-    map.insert("key", "value");
-    println!("{:?}\n", map);
+    let mut scores = HashMap::new();
+    scores.insert(String::from("skarekroe"), 69);
+    scores.insert(String::from("sanjana"), 84);
+    // dbg!(scores);
 
-    // let mut count = 11;
+    let new_scores = scores.get("skarekroe").copied().unwrap_or(0);
+    dbg!(new_scores);
 
-    // while count > 1 {
-    //     count -= 1;
-
-    //     if count % 2 == 0 {
-    //         continue;
-    //     }
-
-    //     println!("{count}");
-    // }
-
-    let nums: [i32; 5] = [1, 2, 3, 4, 5];
-
-    for n in nums {
-        let squared = n.pow(2);
-        println!("{n}: {squared}");
+    for (k, v) in &scores {
+        println!("{k}: {v}");
     }
 
-    let names = ["skarekroe", "sanjana", "anisha"];
+    println!("---------------------------------------------------");
 
-    // while index < names.len() {
-    //     println!("{}", names[index]);
-    //     index += 1;
-    // }
+    let mut items = HashMap::new();
+    items.insert("cup", 10);
+    // dbg!(items);
 
-    for name in names {
-        println!("{name}");
+    items.entry("cup").or_insert(20);
+    items.entry("fork").or_insert(20);
+    println!("{:?}", items);
+
+    println!("---------------------------------------------------");
+
+    hash_set();
+}
+
+fn hash_set() {
+    // let mut nums = HashSet::new();
+    // nums.insert("10");
+    // nums.insert("20");
+    // nums.insert("10");
+    let nums = HashSet::from([10, 20, 10, 30, 40]);
+    println!("{:?}", nums);
+
+    // dbg!(nums.contains(&20));
+
+    println!("---------------------------------------------------");
+
+    dbg!(nums.is_empty());
+
+    for n in &nums {
+        println!("{:?}", n);
     }
+
+    println!("---------------------------------------------------");
+
+    let hs1 = HashSet::from([1, 2, 3, 4, 5]);
+    let hs2 = HashSet::from([4, 5, 6, 6, 7, 8]);
+
+    // let result: HashSet<&i32> = hs1.union(&hs2).collect();
+    // let result: HashSet<&i32> = hs1.intersection(&hs2).collect();
+    let result: HashSet<&i32> = hs1.difference(&hs2).collect();
+    println!("{:?}", result);
 }

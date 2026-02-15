@@ -42,4 +42,3 @@ fn read_username() -> Result<String, io::Error> {
         Err(e) => Err(e),
     }
 }
-
