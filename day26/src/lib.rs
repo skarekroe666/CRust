@@ -25,17 +25,31 @@ pub mod banking {
             println!(
                 "[TRANSACTION] Deposited: ${} into {}. New balance: ${}",
                 amount, acc.id, acc.balance
-            )
+            );
         }
 
         pub fn withdraw(acc: &mut Account, amount: f64) {
             if acc.balance >= amount {
+                acc.balance -= amount;
                 println!(
                     "[TRANSACTION] Withdrew ${} from account: {}, New balace: {}",
                     amount, acc.id, acc.balance
                 );
             } else {
                 println!("[TRANSACTION] ERROR: Insufficient balance");
+            }
+        }
+
+        pub fn transfer(from: &mut Account, to: &mut Account, amount: f64) {
+            if from.balance < amount {
+                println!("[TRANSACTION] ERROR Insufficient funds");
+            } else {
+                from.balance -= amount;
+                to.balance += amount;
+                println!(
+                    "[TRANSACTION] Transfered: ${} to: {}. New balance: ${}",
+                    amount, to.id, from.balance
+                );
             }
         }
     }
