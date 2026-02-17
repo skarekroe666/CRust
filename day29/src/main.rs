@@ -25,7 +25,7 @@ impl Summary for BlogPost {
 
 impl fmt::Display for BlogPost {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "BlogPost: {} byt {}", self.title, self.author)
+        write!(f, "BlogPost: {} by {}", self.title, self.author)
     }
 }
 
