@@ -10,9 +10,20 @@
 //     unimplemented!();
 // }
 
+use std::fmt::Display;
+
 fn main() {
     let item = return_summarizable();
     println!("{:?}", item.summarize());
+
+    println!("----------------------------------------------------");
+
+    let something = Pair::init(32, 64);
+    dbg!(&something);
+    something.cmd_display();
+
+    let s = 43.to_string();
+    dbg!(s);
 }
 
 trait Summary {
@@ -34,5 +45,27 @@ fn return_summarizable() -> impl Summary {
 impl Summary for SocialPost {
     fn summarize(&self) -> String {
         format!("{}: {}", self.username, self.content)
+    }
+}
+
+#[derive(Debug)]
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn init(x: T, y: T) -> Self {
+        Self { x, y }
+    }
+}
+
+impl<T: Display + PartialOrd> Pair<T> {
+    fn cmd_display(&self) {
+        if self.x >= self.y {
+            println!("The largest number is {}", self.x);
+        } else {
+            println!("The largest number is {}", self.y);
+        }
     }
 }
