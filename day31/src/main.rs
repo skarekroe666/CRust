@@ -55,6 +55,7 @@ impl<'a> ImpExcerpt<'a> {
         3
     }
 }
+
 impl<'a> ImpExcerpt<'a> {
     fn annouce_and_return(&self, announce: &str) -> &str {
         println!("Attention please: {announce}");
