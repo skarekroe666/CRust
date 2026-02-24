@@ -1,7 +1,16 @@
+pub mod art;
+use crate::art::{kinds::PrimaryColor, utils::mix};
+
 fn main() {
     println!("Hello, world!");
     let result = add_one(43);
     dbg!(result);
+
+    println!("-----------------------------------------------------");
+
+    let red = PrimaryColor::Red;
+    let yellow = PrimaryColor::Yellow;
+    mix(red, yellow);
 }
 
 /// Adds one to the number given.

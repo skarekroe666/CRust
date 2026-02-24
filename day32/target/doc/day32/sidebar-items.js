@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["add_one","main"]};
+window.SIDEBAR_ITEMS = {"fn":["add_one","main"],"mod":["art"]};
